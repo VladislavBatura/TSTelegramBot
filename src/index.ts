@@ -1,7 +1,8 @@
 import { Context, Markup, Telegraf } from "telegraf";
 import { Update } from "telegraf/typings/core/types/typegram";
+import * as config from "../src/config.json";
 
-const bot: Telegraf<Context<Update>> = new Telegraf(process.env.BOT_TOKEN as string);
+const bot: Telegraf<Context<Update>> = new Telegraf(config.BOT_TOKEN);
 
 bot.start((ctx) => {
     ctx.reply(`Hello, ${ctx.from.first_name}!`);
